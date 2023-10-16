@@ -63,8 +63,6 @@ boneco = [
     '''
 ]
 
-
-# Checa e substitui caso encontre uma letra
 def checar_letra(vidas):
     achou = False
     for x in range(len(palavras_dicas[nivel][0])):
@@ -72,14 +70,12 @@ def checar_letra(vidas):
             palavra_atual[x] = palavras_dicas[nivel][0][x]
             achou = True
 
-    # Se não achar nenhuma letra, subtrai uma vida
     if achou == False:
         vidas -= 1
 
     return vidas
 
 
-# Checa se ainda existem letras a serem achadas
 def avancar_nivel(nivel, palavra_atual):
     proximo_nivel = True
     for x in range(len(palavras_dicas[nivel][0])):
@@ -104,7 +100,6 @@ def mostrar_jogo():
     return jogador_input
 
 
-# Loop principal do jogo
 while True:
     if vidas == 0:
         print(boneco[vidas])
@@ -115,7 +110,6 @@ while True:
     letras_digitadas = letras_digitadas + [jogador_input]
     vidas = checar_letra(vidas)
 
-    # Avança para o proximo nivel
     if avancar_nivel(nivel, palavra_atual):
         nivel += 1
         if nivel == 5:
